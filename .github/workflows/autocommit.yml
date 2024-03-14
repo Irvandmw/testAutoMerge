@@ -12,7 +12,6 @@ jobs:
       contents: write
 
     steps:
-
     - uses: actions/checkout@v2
 
     - name: Run Git Auto Commit
@@ -23,10 +22,8 @@ jobs:
 
     - name: Run if changes have been detected
       if: steps.auto-commit-action.outputs.changes_detected == 'true'
-      run: go run - 'fmt.Println("Changes!")'
+      run: echo 'package main; import "fmt"; func main() { fmt.Println("Changes!") }' > temp.go && go run temp.go
 
     - name: Run if no changes have been detected
       if: steps.auto-commit-action.outputs.changes_detected == 'false'
-      run: go run - 'fmt.Println("No Changes!")'
-
-      
+      run: echo 'package main; import "fmt"; func main() { fmt.Println("No Changes!") }' > temp.go && go run temp.go
