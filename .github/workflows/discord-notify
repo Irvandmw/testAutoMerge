@@ -1,0 +1,17 @@
+---
+
+name: discord-notify-pr-review-request
+
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  notify:
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: discord-notify-pr-review-request
+        uses: captos/discord-notify-pr-review-request@v1.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          discordWebhookUrl: ${{ https://discord.com/api/webhooks/1217853066053943377/ceKNfq-UbOCYiQAgTRVeSRLlpWp5kEJjd109aB9JJAaclXWxUDrtk0KI0q3_8VvYv6kq }}
