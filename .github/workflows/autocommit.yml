@@ -23,10 +23,10 @@ jobs:
 
     - name: Run if changes have been detected
       if: steps.auto-commit-action.outputs.changes_detected == 'true'
-      run: go run -e 'fmt.Println("Changes!")'
+      run: go run - 'fmt.Println("Changes!")'
 
     - name: Run if no changes have been detected
       if: steps.auto-commit-action.outputs.changes_detected == 'false'
-      run: go run -e 'fmt.Println("No Changes!")'
+      run: go run - 'fmt.Println("No Changes!")'
 
       
