@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 func GetAllProducts(w http.ResponseWriter, r *http.Request) {
