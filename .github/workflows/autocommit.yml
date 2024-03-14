@@ -13,15 +13,20 @@ jobs:
 
     steps:
 
-    - uses: stefanzweifel/git-auto-commit-action@v5
-      with:
-          commit_message: Automated Change
-      
-    - name: "Run if changes have been detected"
-      if: steps.auto-commit-action.outputs.changes_detected == 'true'
-      run: echo "Changes!"
+    - uses: actions/checkout@v2
 
-    - name: "Run if no changes have been detected"
+    - name: Run Git Auto Commit
+      id: auto-commit-action
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: Automated Change
+
+    - name: Run if changes have been detected
+      if: steps.auto-commit-action.outputs.changes_detected == 'true'
+      run: go run -e 'fmt.Println("Changes!")'
+
+    - name: Run if no changes have been detected
       if: steps.auto-commit-action.outputs.changes_detected == 'false'
-      run: echo "No Changes!"
+      run: go run -e 'fmt.Println("No Changes!")'
+
       
