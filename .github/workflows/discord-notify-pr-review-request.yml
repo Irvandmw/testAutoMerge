@@ -13,5 +13,5 @@ jobs:
       - name: discord-notify-pr-review-request
         uses: captos/discord-notify-pr-review-request@v1.1.2
         with:
-          token: ${{ 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 }}
-          discordWebhookUrl: ${{ https://discord.com/api/webhooks/1217853066053943377/ceKNfq-UbOCYiQAgTRVeSRLlpWp5kEJjd109aB9JJAaclXWxUDrtk0KI0q3_8VvYv6kq }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          discordWebhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
